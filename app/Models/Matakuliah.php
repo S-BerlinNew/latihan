@@ -12,4 +12,9 @@ class Matakuliah extends Model
     ];
 
     protected $table = 'matakuliahs';
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class);
+    }
 }

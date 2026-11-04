@@ -12,7 +12,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        return view('IndexMahasiswa', ['mahasiswas' => Mahasiswa::all()]);
+        return view('mahasiswa.index', ['mahasiswas' => Mahasiswa::all()]);
     }
 
     /**
@@ -20,7 +20,9 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('createMahasiswa');
+        return view('mahasiswa.create', [
+            'mahasiswa' => ['id' => null, 'name' => '', 'NIM' => '', 'tanggal_lahir' => '', 'tempat_lahir' => '', 'jurusan' => '', 'angkatan' => '']
+        ]);
     }
 
     /**
