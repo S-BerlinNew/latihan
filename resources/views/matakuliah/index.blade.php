@@ -5,7 +5,7 @@
 <div>
     <div>
         <h3>Data Matakuliah</h3>
-        <a href="{{ route('matakuliah.store') }}" class="btn btn-primary mb-3">Tambah Data</a>
+        <a href="{{ route('matakuliah.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
     </div>
     <div>
         <table class="table table-striped table-striped-columns">

@@ -5,7 +5,7 @@
 <div>
     <div>
         <h3>Daftar Mahasiswa</h3>
-        <a href="{{ route('mahasiswa.store') }}">Tambah Data</a>
+        <a class="btn btn-primary mb-3" href="{{ route('mahasiswa.create') }}">Tambah Data</a>
     </div>
     <div>
         <table class="table table-striped table-striped-columns">

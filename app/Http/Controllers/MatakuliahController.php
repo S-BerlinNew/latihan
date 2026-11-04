@@ -21,7 +21,8 @@ class MatakuliahController extends Controller
      */
     public function create()
     {
-        //
+        $matakuliahs = Matakuliah::all();
+        return view('matakuliah.create', compact('matakuliahs'));
     }
 
     /**
@@ -29,7 +30,12 @@ class MatakuliahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode' => 'required',
+            'nama_matakuliah' => 'required'
+        ]);
+        Matakuliah::create($validated);
+        return redirect()->route('matakuliah.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -45,7 +51,8 @@ class MatakuliahController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $matakuliahs = Matakuliah::findOrFail($id);
+        return view('matakuliah.edit', compact('matakuliahs'));
     }
 
     /**
@@ -53,6 +60,9 @@ class MatakuliahController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $matakuliahs = Matakuliah::findOrFail($id);
+        $matakuliahs->update($request->all());
+        return redirect()->route('matakuliah.index')->with('success', 'Data berhasil diupdate');
         //
     }
 
@@ -61,6 +71,8 @@ class MatakuliahController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $matakuliahs = Matakuliah::findOrFail($id);
+        $matakuliahs->delete();
+        return redirect()->route('matakuliah.index')->with('success', 'Data berhasil dihapus');
     }
 }
