@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Absensi;
 use App\Models\Matakuliah;
+use App\Models\Mahasiswa;
 
 class AbsensiController extends Controller
 {
@@ -14,7 +15,9 @@ class AbsensiController extends Controller
     public function index()
     {
         $absensis = Absensi::all();
-        return view("absensi.index", compact('absensis'));
+        $mahasiswas = Mahasiswa::all();
+        $matakuliahs = Matakuliah::all();
+        return view("absensi.index", compact('absensis', 'mahasiswas', 'matakuliahs'));
     }
 
     /**
